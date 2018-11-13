@@ -1,5 +1,3 @@
-console.log("Tjenare kexet!");
-
 var cards = [
     "AS", "KS", "QS", "JS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "0S",
     "AD", "KD", "QD", "JD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "0D",
@@ -20,13 +18,14 @@ function shuffle(a) {
 }
 
 // HUR ???
-
 //function deal(card) {
 
 //    shuffle(cards);
+
 //    var half_length = Math.ceil(cards.length / 2);
 //    var playerCards = cards.slice(0, half_length);
 //    var computerCards = cards.slice(half_length, cards.length);
+
 //    card.player = playerCards.pop();
 //    card.computer = computerCards.pop();
 //}
@@ -58,5 +57,69 @@ function createDeck() {
     );
     return deck;
 }
+
 let deck = createDeck();
 console.log(deck);
+
+
+
+function deal(theDeck) {
+    let playerCards = [];
+    let computerCards = [];
+
+    for (var i = 0; i < theDeck.length; i++) {
+        if (i % 2 == 0)
+            playerCards.push(theDeck[i]);
+        else
+            computerCards.push(theDeck[i]);
+    }
+    return {
+        playerCards: playerCards,
+        computerCards: computerCards
+    };
+}
+
+let dealtCards = deal(deck);
+console.log(dealtCards);
+
+function computerDrawsCard(allComputerCards) {
+    return allComputerCards.pop();
+}
+
+let computerCard = computerDrawsCard(dealtCards.computerCards);
+
+function playerDrawsCard(allPlayerCards) {
+    return allPlayerCards.pop();
+}
+
+let playerCard = playerDrawsCard(dealtCards.playerCards);
+
+console.log(computerCard);
+console.log(playerCard);
+
+
+function scoreCards(card1, card2) {
+    let value1 = card1.charAt(0);
+    let suit1 = card1.charAt(1);
+
+    let value2 = card2.charAt(0);
+    let suit2 = card2.charAt(1);
+
+    if (value1 === value2 || suit1 === suit2) return 1;
+    else return -1;
+}
+
+let score = 0;
+
+for (var i = 0; i < 4; i++) {
+
+    computerCard = computerDrawsCard(dealtCards.computerCards);
+    playerCard = playerDrawsCard(dealtCards.playerCards);
+
+    let scoreDelta = scoreCards(playerCard, computerCard);
+
+    score += scoreDelta;
+
+    console.log(scoreDelta);
+    console.log("Total score: " + score);
+}
