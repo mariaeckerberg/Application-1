@@ -19,25 +19,44 @@ function shuffle(a) {
     return a;
 }
 
-shuffle(cards);
-
-var half_length = Math.ceil(cards.length / 2);
-
-var playerCards = cards.slice(0, half_length);
-var computerCards = cards.slice(half_length, cards.length);
-
-console.log(playerCards.pop());
-console.log(playerCards.length);
-
+// HUR ???
 
 //function deal(card) {
 
-//    var playerCards;
-
-//    var computerCards;
-
+//    shuffle(cards);
+//    var half_length = Math.ceil(cards.length / 2);
+//    var playerCards = cards.slice(0, half_length);
+//    var computerCards = cards.slice(half_length, cards.length);
+//    card.player = playerCards.pop();
+//    card.computer = computerCards.pop();
 //}
 //return card;
 //}
 
-//return cards;
+
+
+
+
+/////// CA /////////
+
+function createDeck() {
+
+    let cardValues = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    let suitValues = ["H", "C", "D", "S"];
+
+    let deck = [];
+
+    cardValues.forEach(
+        function (value) {
+
+            for (var i = 0; i < suitValues.length; i++) {
+                let theSuit = suitValues[i];
+                let card = value + theSuit;
+                deck.push(card);
+            }
+        }
+    );
+    return deck;
+}
+let deck = createDeck();
+console.log(deck);
