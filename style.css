@@ -1,6 +1,7 @@
 ﻿body {
     height: 100%;
     width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -57,6 +58,11 @@ main {
 
     #cardArea img {
         width: 150px;
+    }
+
+    figcaption {
+        margin-top: 10px;
+        font-weight: bold;
     }
 
 aside {
