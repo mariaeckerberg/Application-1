@@ -5,6 +5,25 @@
     "AH", "KH", "QH", "JH", "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "0H"
 ];*/
 
+/*
+function deal(card) {
+
+    shuffle(deck);
+
+    var half_length = Math.ceil(deck.length / 2);
+    var playerCards = deck.slice(0, half_length);
+    var computerCards = deck.slice(half_length, deck.length);
+
+    console.log("Player cards: " + playerCards);
+    console.log("Computer cards: " + computerCards);
+
+    //card.player = playerCards.pop();
+    //card.computer = computerCards.pop();
+}
+return card;
+}
+*/
+
 
 function createDeck() {
 
@@ -61,60 +80,46 @@ let dealtCards = deal(deck);
 console.log(dealtCards);
 
 
+
+let theGame = {
+    score: 0,
+    // computerDrawsCard: LÄGG FUNKTIONEN HÄR
+};
+
+
 function computerDrawsCard(allComputerCards, cardDrawnFunction) {
     setTimeout(function () {
-
         let card = allComputerCards.pop();
-
         cardDrawnFunction(card);
-
     }, 1500);
 }
 
 computerDrawsCard(
     dealtCards.computerCards,
     function (card) {
-        console.log("Card: " + card);
+        console.log("Computer card: " + card);
+        theGame.currentComputerCard = card;
     });
 
-//ToDo: Funktion för player draws card
-
-/*
-function deal(card) {
-
-    shuffle(deck);
-
-    var half_length = Math.ceil(deck.length / 2);
-    var playerCards = deck.slice(0, half_length);
-    var computerCards = deck.slice(half_length, deck.length);
-
-    console.log("Player cards: " + playerCards);
-    console.log("Computer cards: " + computerCards);
-
-    //card.player = playerCards.pop();
-    //card.computer = computerCards.pop();
-}
-return card;
-}
-*/
-
-
-
+/*playerDrawsCard(
+    dealtCards.playerCards,
+    function (card) {
+        console.log("Player card: " + card);
+        theGame.score += scoreCards(card, theGame.currentComputerCard);
+        console.log("Score: " + theGame.score);
+    });*/
 
 /////// CA /////////
 
-
-
-function playerDrawsCard(allPlayerCards) {
-    return allPlayerCards.pop();
+/*
+function playerDrawsCard(allPlayerCards, playerDrawFcuntion) {
+    setTimeout(function () {
+        let playerCard = allPlayerCards.pop();
+        playerDrawFunction(playerCard);
+    }, 2500);
 }
 
-let playerCard = playerDrawsCard(dealtCards.playerCards);
 
-//console.log(computerCard);
-//console.log(playerCard);
-
-/*
 function scoreCards(card1, card2) {
     let value1 = card1.charAt(0);
     let suit1 = card1.charAt(1);
@@ -126,7 +131,9 @@ function scoreCards(card1, card2) {
     else return -1;
 }
 
-let score = 0;
+
+
+//let score = 0;
 
 for (var i = 0; i < 4; i++) {
 
