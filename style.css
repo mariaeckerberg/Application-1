@@ -65,6 +65,11 @@ main {
         font-weight: bold;
     }
 
+    .cardImg
+    {
+        display: none;
+    }
+
 aside {
     width: 20%;
     padding: 2%;
