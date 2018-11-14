@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Card game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x32.png">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-reboot.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -90,10 +91,11 @@
     </main>
 
     <footer>
-        <button type="button">New game</button>
-        <button type="button">Pause</button>
-        <button type="button">Save</button>
+        <button type="button" id="newGameButton">New game</button>
+        <button type="button" id="pauseButton">Pause</button>
+        <button type="button" id="saveButton">Save</button>
     </footer>
+    <script src="userInteraction.js"></script>
     <script src="script.js" charset="utf-8"></script>
 </body>
 </html>
