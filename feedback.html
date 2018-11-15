@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Feedback</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32x32.png">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap-reboot.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="styleFeedback.css">
+</head>
+<body>
+    <header>
+        <h1>Feedback</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Play!</a></li>
+            <li><a href="index.html">Saved games</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <aside id="stats"></aside>
+
+        <aside id="highScore"></aside>
+
+        <!--Create a table at the bottom of your feedback page.
+        ●	Each time the form is submitted collect the information and add a row to the table
+        ●	Fill the row with cells containing each of the fields from the form.
+        ○	try to style the color cell with the actual color...-->
+
+
+        <div id="cardArea">
+            <form>
+                <legend>User Feedback</legend>
+
+                <fieldset>
+                    <label>Name:</label>
+                    <input type="text" placeholder="Your name" id="name" value="" required />
+                </fieldset>
+
+                <fieldset>
+                    <label>How happy are you with your score?</label>
+                    <input type="range" min="0" max="5" step="1" id="range" value="" required />
+                </fieldset>
+
+                <fieldset>
+                    <label>Favorite color:</label>
+                    <input type="color" required id="color" />
+                </fieldset>
+
+                <input type="submit" id="submit" value="OK">
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Satisfaction</th>
+                        <th>Favorite color</th>
+                    </tr>
+                </thead>
+                <tbody class="userStats">
+                    <tr>
+                        <td id="inputName">Maria</td>
+                        <td id="inputRange">5</td>
+                        <td id="inputColor">Blue</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div id="test"></div>
+    </main>
+
+    <footer></footer>
+    <script src="userInteraction.js"></script>
+    <!--<script src="script.js"></script>-->
+</body>
+</html>

@@ -15,6 +15,22 @@ var gameState = {
 //Skriv ut topplista
 
 $(document).ready(function () {
+
+
+
+
+    $("#submit").click(function (e) {
+        e.preventDefault();
+        var name = $("#name").val();
+        var range = $("#range").val();
+        //var color = $('input[type=color]'.val())
+        //var cell = $('<td>');
+        //cell = color;
+        $(".userStats").append('<tr><td id="inputName">' + name + '</td><td id = "inputRange" >' + range + '</td ><td id="inputColor">' + 'Pink' + '</td></tr>')
+        
+    });
+
+
     var cardImg = $(".cardImg");
     var cardPlaceholder = $(".cardPlaceholder");
     var newGameButton = $("#newGameButton");

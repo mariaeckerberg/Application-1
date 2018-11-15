@@ -1,0 +1,15 @@
+﻿
+form {
+    background-color: lightgray;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+fieldset {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type=submit] {
+    margin-top: 20px;
+}
