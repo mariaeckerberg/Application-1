@@ -2,6 +2,17 @@
 let playerCard;
 let computerCard;
 const baseUrl = 'https://deckofcardsapi.com/api/deck/';
+var gameState = {
+    gameLoop: null,
+    gameTimer: null
+}
+
+//Sätt timer på rätt ställe
+//Pausa timer
+//Pausa interval för spel-loop
+//Local storage för highschore och sparade spel
+//Spara spelarens poäng
+//Skriv ut topplista
 
 $(document).ready(function () {
     var cardImg = $(".cardImg");
@@ -19,11 +30,9 @@ $(document).ready(function () {
                     .done(function (drawData) {
                         let theCard = drawData.cards[0];
                         setPlayerCard(theCard);
-
-                        //Kör datorspelfunktion här
-
-
                     });
+
+                setInterval(drawComputerCard, Math.floor(Math.random() * 3000));
             });
     });
 });
@@ -34,15 +43,46 @@ function setPlayerCard(card) {
 }
 
 function drawComputerCard() {
-
-}
-
-setTimeout(function () {
     $.getJSON(baseUrl + deckId + '/draw/')
         .done(function (computerDraw) {
             computerCard = computerDraw.cards[0].code;
             $('#computerCardImg').attr('src', computerDraw.cards[0].image);
         });
-}, 1500);
+}
+
+
+
+function get_elapsed_time_string(total_seconds) {
+    function pretty_time_string(num) {
+        return (num < 10 ? "0" : "") + num;
+    }
+
+    var hours = Math.floor(total_seconds / 3600);
+    total_seconds = total_seconds % 3600;
+
+    var minutes = Math.floor(total_seconds / 60);
+    total_seconds = total_seconds % 60;
+
+    var seconds = Math.floor(total_seconds);
+
+    // Pad the minutes and seconds with leading zeros, if required
+    hours = pretty_time_string(hours);
+    minutes = pretty_time_string(minutes);
+    seconds = pretty_time_string(seconds);
+
+    // Compose the string for display
+    var currentTimeString = hours + ":" + minutes + ":" + seconds;
+
+    return currentTimeString;
+}
+
+var elapsed_seconds = 0;
+setInterval(function () {
+    elapsed_seconds = elapsed_seconds + 1;
+    $('#gameTime').text(get_elapsed_time_string(elapsed_seconds));
+}, 1000);
+
+
+
 
 //Make it work, then make it right, then make it fast
