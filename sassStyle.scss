@@ -1,4 +1,26 @@
-﻿body {
+﻿/*
+$baseColor: pink;
+$reasonableSpace: 20px;
+
+body {
+    background-color: darken($baseColor, 30%);
+}
+
+div {
+    color: $baseColor;
+    margin: $reasonableSpace + 5px;
+
+    .notsocool {
+        border: 2px dashed red;
+
+        img{
+            margin: 50px;
+        }
+    }
+}*/
+
+
+body {
     height: 100%;
     width: 100%;
     font-family: 'Montserrat', sans-serif;
@@ -11,34 +33,34 @@ header {
 
 nav {
     text-align: center;
-}
 
-    nav ul {
+    ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
         background-color: #333;
-    }
 
-        nav ul li {
+        li {
             display: inline-flex;
-        }
 
-            nav ul li a {
+            a {
                 display: block;
                 color: white;
                 text-align: center;
                 text-decoration: none;
                 padding: 16px 14px;
                 text-transform: uppercase;
-            }
 
-                nav ul li a:hover {
+                a:hover {
                     color: white;
                     font-weight: bold;
                     text-decoration: none;
                 }
+            }
+        }
+    }
+}
 
 main {
     width: 100%;
@@ -54,19 +76,18 @@ main {
     flex-wrap: wrap;
 }
 
-    #cardArea img {
-        width: 150px;
-    }
+#cardArea img {
+    width: 150px;
+}
 
-    figcaption {
-        margin-top: 10px;
-        font-weight: bold;
-    }
+figcaption {
+    margin-top: 10px;
+    font-weight: bold;
+}
 
-    .cardImg
-    {
-        display: none;
-    }
+.cardImg {
+    display: none;
+}
 
 aside {
     width: 20%;
